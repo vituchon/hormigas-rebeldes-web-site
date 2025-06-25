@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Hormigas Rebeldes",
   description: "Comida, abrigo y contención para personas en situación de calle",
+  icons: {
+    icon: "/favicon.ico",
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -23,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </header>
         <main className="max-w-5xl mx-auto px-4 py-12">{children}</main>
         <footer className="bg-white border-t py-6 text-center text-sm text-gray-500">
-          © $(date +%Y) Hormigas Rebeldes. Todos los derechos reservados.
+          🄯 {new Date().getFullYear()} Hormigas Rebeldes. Todos los derechos compartidos.
         </footer>
       </body>
     </html>
