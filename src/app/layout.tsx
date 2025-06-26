@@ -29,14 +29,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           🄯 {new Date().getFullYear()} Hormigas Rebeldes. Todos los derechos compartidos.
         </footer>
 
-        {/* Animación de hormigas caminando */}
-        <div className="ant-container">
+        {/* Hormigas abajo */}
+        <div className="ant-container bottom">
           <div className="ant-emoji">🐜</div>
           <div className="ant-emoji">🐜</div>
           <div className="ant-emoji">🐜</div>
           <div className="ant-emoji">🐜</div>
           <div className="ant-emoji">🐜</div>
         </div>
+
+        {/* Hormigas arriba */}
+        <div className="ant-container top">
+          <div className="ant-emoji">🐜</div>
+          <div className="ant-emoji">🐜</div>
+          <div className="ant-emoji">🐜</div>
+          <div className="ant-emoji">🐜</div>
+          <div className="ant-emoji">🐜</div>
+        </div>
+
       </body>
     </html>
   );
