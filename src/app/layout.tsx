@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AntsRow from './components/AntsRow';
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -9,29 +10,6 @@ export const metadata: Metadata = {
   }
 };
 
-type VerticalPosition = 'top' | 'bottom';
-type HorizonalDirection = 'left-to-right' | 'right-to-left';
-interface AntRowProps {
-  position: VerticalPosition;
-  direction: HorizonalDirection;
-  count: number;
-};
-
-const AntRow = ({ position = "bottom", direction = "right-to-left", count = 5 }: AntRowProps) => {
-  return (
-    <div className={`ant-container ${position}`}>
-      {Array.from({ length: count }).map((_, i) => {
-          return (
-            <div key={i} className={`ant-emoji ${direction}`} style={{
-              animationDelay: `${i * 1.5}s`,
-              animationDuration: `${7 + (i % 3)}s`
-            }}>🐜</div>
-          )
-        }
-      )}
-    </div>
-  );
-}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -53,8 +31,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           🄯 {new Date().getFullYear()} Hormigas Rebeldes. Todos los derechos compartidos.
         </footer>
 
-        <AntRow position="top" direction="left-to-right" count={5} />
-        <AntRow position="bottom" direction="right-to-left" count={10} />
+        <AntsRow position="top" direction="left-to-right" count={5} />
+        <AntsRow position="bottom" direction="right-to-left" count={10} />
 
       </body>
     </html>

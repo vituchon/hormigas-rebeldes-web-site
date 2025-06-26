@@ -52,6 +52,8 @@ body {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   opacity: 0; /* OCULTA AL COMIENZO HASTA QUE EMPIECE LA ANIMACIÓN */
+  pointer-events: auto; /* permite clic en las hormigas */
+  cursor: pointer;      /* opcional: que el mouse cambie */
 }
 
 .ant-container .ant-emoji.right-to-left {
@@ -77,3 +79,17 @@ body {
 }
 
 /* END: ANIMACIÓN DE HORMIGAS */
+
+/* ANIMACIÓN DE SALTO DE HORMIGA */
+.jump {
+  animation: ant-jump 0.4s cubic-bezier(.45,1.6,.55,1) both;
+  z-index: 20;
+}
+
+@keyframes ant-jump {
+  0% { transform: translateY(0); }
+  20% { transform: translateY(-1.2em) scale(1.1); }
+  40% { transform: translateY(-1.5em) scale(1.12); }
+  60% { transform: translateY(-1.2em) scale(1.1); }
+  100% { transform: translateY(0); }
+}
