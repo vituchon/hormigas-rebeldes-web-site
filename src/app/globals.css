@@ -24,21 +24,19 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-/* ========================
-   ANIMACIÓN DE HORMIGAS
-   ======================== */
 
-/* Contenedor general */
+/* BEGIN: ANIMACIÓN DE HORMIGAS */
+
 .ant-container {
   position: fixed;
   width: 100%;
-  height: 60px;
+  height: 1em;
+  line-height: 1em;
   overflow: hidden;
   z-index: 10;
   pointer-events: none;
 }
 
-/* Posición: arriba o abajo */
 .ant-container.top {
   top: 0;
 }
@@ -47,49 +45,35 @@ body {
   bottom: 0;
 }
 
-/* Emoji de hormiga base */
 .ant-emoji {
   position: absolute;
-  font-size: 16px;
+  font-size: 1em;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  animation-timing-function: lineal;
-  opacity: 0; /* valor inicial para evitar parpadeos */
+  animation-timing-function: linear;
+  opacity: 0; /* OCULTA AL COMIENZO HASTA QUE EMPIECE LA ANIMACIÓN */
 }
 
-/* Dirección: abajo → izquierda */
-.ant-container.bottom .ant-emoji {
-  bottom: 15px;
-  animation-name: antWalkLeft;
-  transform: scaleX(-1); /* espejado */
+.ant-container .ant-emoji.right-to-left {
+  animation-name: ant-walk-left;
 }
 
-/* Dirección: arriba → derecha */
-.ant-container.top .ant-emoji {
-  top: 15px;
-  animation-name: antWalkRight;
-  transform: scaleX(1); /* normal */
+.ant-container .ant-emoji.left-to-right  {
+  animation-name: ant-walk-right;
 }
 
-/* Variación de tiempos */
-.ant-emoji:nth-child(1) { animation-delay: 0s;  animation-duration: 8s; }
-.ant-emoji:nth-child(2) { animation-delay: 2s;  animation-duration: 10s; }
-.ant-emoji:nth-child(3) { animation-delay: 4s;  animation-duration: 9s; }
-.ant-emoji:nth-child(4) { animation-delay: 6s;  animation-duration: 11s; }
-.ant-emoji:nth-child(5) { animation-delay: 8s;  animation-duration: 7s; }
-
-/* Animación hacia la izquierda (de derecha a izquierda) */
-@keyframes antWalkLeft {
+@keyframes ant-walk-left {
   0%   { transform: translateX(100vw) scaleX(1); opacity: 0; }
   5%   { opacity: 1; }
   95%  { opacity: 1; }
-  100% { transform: translateX(-50px) scaleX(1); opacity: 0; }
+  100% { transform: translateX(-1em) scaleX(1); opacity: 0; }
 }
 
-/* Animación hacia la derecha (de izquierda a derecha) */
-@keyframes antWalkRight {
-  0%   { transform: translateX(-50px) scaleX(-1); opacity: 0; }
+@keyframes ant-walk-right {
+  0%   { transform: translateX(-1em) scaleX(-1); opacity: 0; }
   5%   { opacity: 1; }
   95%  { opacity: 1; }
   100% { transform: translateX(100vw) scaleX(-1); opacity: 0; }
 }
+
+/* END: ANIMACIÓN DE HORMIGAS */
