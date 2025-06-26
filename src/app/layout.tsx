@@ -28,6 +28,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer className="bg-white border-t py-6 text-center text-sm text-gray-500">
           🄯 {new Date().getFullYear()} Hormigas Rebeldes. Todos los derechos compartidos.
         </footer>
+
+        {/* Animación de hormigas caminando */}
+        <div className="ant-container">
+          <div className="ant-emoji">🐜</div>
+          <div className="ant-emoji">🐜</div>
+          <div className="ant-emoji">🐜</div>
+          <div className="ant-emoji">🐜</div>
+          <div className="ant-emoji">🐜</div>
+        </div>
       </body>
     </html>
   );
