@@ -10,28 +10,34 @@ interface AntRowProps {
 };
 
 const AntsRow = ({ position = "bottom", direction = "right-to-left", count = 5 }: AntRowProps) => {
-  const [antClicksCount, setAntClicksCount] = useState<Map<number, number>>(new Map());
+  const [touchedAnts, setTouchedAnts] = useState<Set<number>>(new Set());
 
   const handleClick = (i: number) => {
-    setAntClicksCount(prev => {
-      const newMap = new Map(prev);
-      const currentClicksCount = newMap.get(i) ?? 1;
-      const nextClicksCount = currentClicksCount + 1
-      newMap.set(i, nextClicksCount);
-      return newMap;
+    setTouchedAnts(prev => {
+      const newSet = new Set(prev);
+      newSet.add(i);
+      return newSet;
     });
+
+    // Remover la clase de salto después de la animación
+    setTimeout(() => {
+      setTouchedAnts(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(i);
+        return newSet;
+      });
+    }, 1000); // Duración de la animación
   };
 
   return (
     <div className={`ant-container ${position}`}>
       {Array.from({ length: count }).map((_, i) => {
-          const fontSize = 1 + (antClicksCount.get(i) || 1) * 0.1;
+          const wasTouched = touchedAnts.has(i);
+          const onTouchClass = wasTouched ? 'on-touch' : '';
           return (
-            <div key={i} className={`ant-emoji ${direction}`} style={{
+            <div key={i} className={`ant-emoji ${direction} ${onTouchClass}`} style={{
               animationDelay: `${i * 1.5}s`,
               animationDuration: `${7 + (i % 3)}s`,
-              fontSize: `${fontSize}em`,
-              transition: 'font-size 0.3s ease',
             }} onClick={() => handleClick(i)}
             >🐜</div>
           )
