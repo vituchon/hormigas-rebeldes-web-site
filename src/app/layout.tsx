@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AntsRow from './components/AntsRow';
-import AnimatedMain from "./components/AnimatedMain";
+import AnimatedMainClient from "./components/AnimatedMainClient";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,7 +13,6 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  console.log(children)
   return (
     <html lang="es">
       <body className="min-h-screen bg-gray-50 text-gray-800">
@@ -28,14 +27,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </nav>
           </div>
         </header>
-        <AnimatedMain>{children}</AnimatedMain>
+        <AnimatedMainClient>{children}</AnimatedMainClient>
         <footer className="bg-white border-t py-6 text-center text-sm text-gray-500">
           🄯 {new Date().getFullYear()} Hormigas Rebeldes. Todos los derechos compartidos.
         </footer>
-
         <AntsRow position="top" direction="left-to-right" count={5} />
         <AntsRow position="bottom" direction="right-to-left" count={10} />
-
       </body>
     </html>
   );

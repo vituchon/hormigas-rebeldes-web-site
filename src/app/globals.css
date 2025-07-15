@@ -92,3 +92,16 @@ body {
   filter: drop-shadow(0 0 4px yellow) brightness(2);
   z-index: 20;
 }
+
+.blue-emoji {
+  color: blue;
+  filter: sepia(1) hue-rotate(190deg) drop-shadow(0 0 .01ex blue) saturate(9);
+}
+
+nav {
+  white-space: nowrap;
+  overflow-x: auto;
+}
+nav a {
+  white-space: nowrap;
+}
