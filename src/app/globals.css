@@ -45,15 +45,35 @@ body {
   bottom: 0;
 }
 
-.ant-emoji {
+.ant-emoji-wrapper {
   position: absolute;
-  font-size: 1em;
+  top: 0;
+  left: 0;
+  opacity: 0;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  opacity: 0; /* OCULTA AL COMIENZO HASTA QUE EMPIECE LA ANIMACIÓN */
-  pointer-events: auto; /* permite clic en las hormigas */
-  cursor: pointer;      /* opcional: que el mouse cambie */
+  pointer-events: none; /* solo el hijo recibe eventos */
+}
+
+.ant-emoji-wrapper.right-to-left {
+  animation-name: ant-walk-left;
+}
+
+.ant-emoji-wrapper.left-to-right {
+  animation-name: ant-walk-right;
+}
+
+.ant-emoji {
+  font-size: 1em;
+  display: inline-block;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: transform 1s cubic-bezier(0.4,0,0.2,1);
+}
+
+.ant-emoji.on-touch {
+  transform: scale(2);
+  z-index: 20;
 }
 
 .ant-container.top .ant-emoji {
@@ -73,23 +93,23 @@ body {
 }
 
 @keyframes ant-walk-left {
-  0%   { transform: translateX(100vw) scaleX(1); opacity: 0; }
+  0%   { transform: translateX(100vw) scaleX(1) scale(var(--ant-scale, 1)); opacity: 0; }
   5%   { opacity: 1; }
   95%  { opacity: 1; }
-  100% { transform: translateX(-1em) scaleX(1); opacity: 0; }
+  100% { transform: translateX(-1em) scaleX(1) scale(var(--ant-scale, 1)); opacity: 0; }
 }
 
 @keyframes ant-walk-right {
-  0%   { transform: translateX(-1em) scaleX(-1); opacity: 0; }
+  0%   { transform: translateX(-1em) scaleX(-1) scale(var(--ant-scale, 1)); opacity: 0; }
   5%   { opacity: 1; }
   95%  { opacity: 1; }
-  100% { transform: translateX(100vw) scaleX(-1); opacity: 0; }
+  100% { transform: translateX(100vw) scaleX(-1) scale(var(--ant-scale, 1)); opacity: 0; }
 }
 
 /* END: ANIMACIÓN DE HORMIGAS */
 
-.ant-container .ant-emoji.on-touch {
-  filter: drop-shadow(0 0 4px yellow) brightness(2);
+.ant-emoji.on-touch {
+  --ant-scale: 2;
   z-index: 20;
 }
 

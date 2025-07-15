@@ -35,11 +35,19 @@ const AntsRow = ({ position = "bottom", direction = "right-to-left", count = 5 }
           const wasTouched = touchedAnts.has(i);
           const onTouchClass = wasTouched ? 'on-touch' : '';
           return (
-            <div key={i} className={`ant-emoji ${direction} ${onTouchClass}`} style={{
-              animationDelay: `${i * 1.5}s`,
-              animationDuration: `${7 + (i % 3)}s`,
-            }} onClick={() => handleClick(i)}
-            >🐜</div>
+            <div
+              key={i}
+              className={`ant-emoji-wrapper ${direction}`}
+              style={{
+                animationDelay: `${i * 1.5}s`,
+                animationDuration: `${7 + (i % 3)}s`,
+              }}
+            >
+              <span
+                className={`ant-emoji ${onTouchClass}`}
+                onClick={() => handleClick(i)}
+              >🐜</span>
+            </div>
           )
         }
       )}
