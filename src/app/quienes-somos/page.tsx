@@ -42,6 +42,9 @@ export default function QuienesSomosPage() {
       <p className="text-gray-700">
         Nos juntamos todos los Lúnes a partir de las 20:00 en la Plazoleta <i>Gracia y Libertad</i>, Av. Beiro y Cervantes, donde realizamos la olla solidaria.
       </p>
+      <a href="/como-ayudar" className="inline-block bg-green-700 text-white px-6 py-2 my-5 rounded shadow hover:bg-green-800 transition">
+        Quiero colaborar
+      </a>
       <br/>
       <h2 className="text-2xl font-semibold mb-4">Datos fácticos</h2>
       <div className="flex flex-col md:flex-row gap-6 justify-center mb-8">
@@ -63,10 +66,14 @@ export default function QuienesSomosPage() {
         </div>
       </div>
       <h2 className="text-2xl font-semibold mb-4">¿Cómo ser una hormiga rebelde?</h2>
-      Chambareros...
       <p className="text-gray-700">
         Con voluntad!<br />
-        <a href="https://docs.google.com/document/d/1aciC8OmoMMxSUuXiA6qHt5lSfmn6jBj-72uvn9Xrz7c/edit?usp=sharing" className="hover:underline">Manual de la hormiga rebelde <span className="blue-emoji">🐜</span></a>
+        <a href="https://docs.google.com/document/d/1aciC8OmoMMxSUuXiA6qHt5lSfmn6jBj-72uvn9Xrz7c/edit?usp=sharing" className="underline hover:underline">Manual de la hormiga rebelde <span className="blue-emoji">🐜</span></a>
+      </p>
+      <h2 className="text-2xl font-semibold mb-4 my-5">Chambareros</h2>
+      <p className="text-gray-700">
+        Trabajar es necesario para inclusión social, y por eso nos esforzamos en ayudar a quienes lo necesitan a conseguirlo.
+        Los chambaereos son las personas que tienen alguna chamba.
       </p>
     </div>
   );
