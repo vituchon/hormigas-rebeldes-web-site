@@ -8,7 +8,7 @@ export default function ComoAyudarPage() {
         <RendeVouzPointMap />
       </div>
       <p className="text-gray-700 mb-4 text-lg">
-        Acercate los Lúnes de olla (de 20:00 a 21:30 aprox) o <a href="/contacto" className="hover:underline">contactarnos</a> para colaborar en cualquiera de estas formas:
+        Acercate los Lúnes de olla o <a href="/contacto" className="hover:underline">contactarnos</a> para colaborar en cualquiera de estas formas:
       </p>
       <ul className="list-disc ml-8 text-gray-700 space-y-3 text-base">
         <li><span className="font-semibold text-green-800">Doná ropa limpia</span>, especialmente de abrigo.</li>
