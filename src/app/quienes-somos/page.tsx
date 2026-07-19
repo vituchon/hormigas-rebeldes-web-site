@@ -2,6 +2,28 @@
 import { animate, motion, useMotionValue, useTransform } from "motion/react"
 import { useEffect } from "react"
 
+function countMondaysBetween(begins: Date, ends: Date) {
+    let mondaysCount = 0;
+
+    begins.setHours(0, 0, 0, 0);
+    ends.setHours(0, 0, 0, 0);
+    while (begins <= ends) {
+        if (begins.getDay() === 1) {
+            mondaysCount++;
+        }
+        begins.setDate(begins.getDate() + 1); // next day
+    }
+    return mondaysCount;
+}
+
+function countOllasServed() {
+    const timezone = 'America/Buenos_Aires';
+
+    const begins = new Date('2022-07-07') // 7 de julio de 2022, primer lunes de olla (en honor al cumple de Gauchito!)
+    const ends = new Date() // "Hoy"
+    return countMondaysBetween(begins, ends)
+}
+
 export default function QuienesSomosPage() {
   const text = {
     fontSize: "2em",
@@ -20,9 +42,10 @@ export default function QuienesSomosPage() {
   const roundedJobsCount = useTransform(() => Math.round(jobsCount.get()))
 
   useEffect(() => {
-    const controls1 = animate(mealsServedCount, 78, { duration: 5 })
-    const controls2 = animate(coatsDeliveredCount, 432, { duration: 5 })
-    const controls3 = animate(talksUnlockedCount, 1420, { duration: 5 })
+    const ollasServed = countOllasServed()
+    const controls1 = animate(mealsServedCount, ollasServed, { duration: 5 })
+    const controls2 = animate(coatsDeliveredCount, ollasServed * 3 / 2, { duration: 5 })
+    const controls3 = animate(talksUnlockedCount, ollasServed * 7 / 2, { duration: 5 })
     const controls4 = animate(jobsCount, 3, { duration: 5 })
     return () => {
       controls1.stop()
@@ -36,8 +59,8 @@ export default function QuienesSomosPage() {
     <div id="about">
       <h2 className="text-2xl font-semibold mb-4">Quiénes Somos</h2>
       <p className="text-gray-700">
-        Somos una agrupación de personas que decidimos unirnos para acompañar a quienes viven en la calle.
-        Creemos en la dignidad, la escucha y la solidaridad como pilares de una sociedad mejor.
+        Somos un grupo de amigos que durante la pandemía decidimos salir a la calle a darle un plato de comida a quienes lo necesitaban.
+        Desde entonces, nos organizamos para poder ayudar, además, entregando ropa, abrigos, y fomentando la inserción laboral.
       </p>
       <p className="text-gray-700">
         Nos juntamos todos los Lúnes a partir de las 20:00 en la Plazoleta <i>Gracia y Libertad</i>, Av. Beiro y Cervantes, donde realizamos la olla solidaria.
@@ -68,12 +91,11 @@ export default function QuienesSomosPage() {
       <h2 className="text-2xl font-semibold mb-4">¿Cómo ser una hormiga rebelde?</h2>
       <p className="text-gray-700">
         Con voluntad!<br />
-        <a href="https://docs.google.com/document/d/1aciC8OmoMMxSUuXiA6qHt5lSfmn6jBj-72uvn9Xrz7c/edit?usp=sharing" className="underline hover:underline">Manual de la hormiga rebelde <span className="blue-emoji">🐜</span></a>
       </p>
       <h2 className="text-2xl font-semibold mb-4 my-5">Chambareros</h2>
       <p className="text-gray-700">
         Trabajar es necesario para inclusión social, y por eso nos esforzamos en ayudar a quienes lo necesitan a conseguirlo.
-        Los chambaereos son las personas que tienen alguna chamba.
+        Los chambaereos son las personas a las cuales les hemos podidos encontrar un trabajo. Esto es de lo más díficil pues se requiere construir un vector vinculante lleno de confianza, algo que escapa a nuestro accionar individual y requiere de la colaboración de toda la comunidad.
       </p>
     </div>
   );

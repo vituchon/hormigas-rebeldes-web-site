@@ -1,4 +1,5 @@
 import RendeVouzPointMap from '../components/RendeVouzPointMap';
+import AliasCopy from '../components/AliasCopy';
 
 export default function ComoAyudarPage() {
   return (
@@ -11,10 +12,11 @@ export default function ComoAyudarPage() {
         Acercate los Lúnes de olla o <a href="/contacto" className="hover:underline">contactarnos</a> para colaborar en cualquiera de estas formas:
       </p>
       <ul className="list-disc ml-8 text-gray-700 space-y-3 text-base">
-        <li><span className="font-semibold text-green-800">Doná ropa limpia</span>, especialmente de abrigo.</li>
+        <li><span className="font-semibold text-green-800">Doná ropa limpia</span>, o lo que tengas y pueda aportar como frazadas, mantas y sábanas.</li>
         <li><span className="font-semibold text-green-800">Traé alimentos</span> no perecederos o cocinados (listos para comer).</li>
         <li><span className="font-semibold text-green-800">Sumate como voluntario</span> para repartir y conversar.</li>
         <li><span className="font-semibold text-green-800">Difundí la causa</span> en tus redes.</li>
+        <li><span className="font-semibold text-green-800">Doná</span> alguna colaboración monetaria al siguiente alias: <AliasCopy alias="ollaspopulares" /></li>
       </ul>
     </div>
   );
