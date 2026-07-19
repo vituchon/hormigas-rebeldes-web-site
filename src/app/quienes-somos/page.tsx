@@ -1,6 +1,15 @@
 'use client';
 import { animate, motion, useMotionValue, useTransform } from "motion/react"
 import { useEffect } from "react"
+import PhotoGallery from "../components/PhotoGallery"
+
+const galleryImages = [
+  "/images/1.png",
+  "/images/2.png",
+  "/images/3.png",
+  "/images/4.png",
+  "/images/5.png",
+]
 
 function countMondaysBetween(begins: Date, ends: Date) {
     let mondaysCount = 0;
@@ -65,6 +74,9 @@ export default function QuienesSomosPage() {
       <p className="text-gray-700">
         Nos juntamos todos los Lúnes a partir de las 20:00 en la Plazoleta <i>Gracia y Libertad</i>, Av. Beiro y Cervantes, donde realizamos la olla solidaria.
       </p>
+      <div className="my-6">
+        <PhotoGallery images={galleryImages} alt="Hormigas Rebeldes" />
+      </div>
       <a href="/como-ayudar" className="inline-block bg-green-700 text-white px-6 py-2 my-5 rounded shadow hover:bg-green-800 transition">
         Quiero colaborar
       </a>
