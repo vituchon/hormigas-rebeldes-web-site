@@ -17,7 +17,7 @@ function countMondaysBetween(begins: Date, ends: Date) {
 }
 
 function countOllasServed() {
-    const timezone = 'America/Buenos_Aires';
+    //const timezone = 'America/Buenos_Aires';
 
     const begins = new Date('2022-07-07') // 7 de julio de 2022, primer lunes de olla (en honor al cumple de Gauchito!)
     const ends = new Date() // "Hoy"
