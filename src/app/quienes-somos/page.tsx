@@ -9,6 +9,7 @@ const galleryImages = [
   "/images/3.png",
   "/images/4.png",
   "/images/5.png",
+  "/images/6_b.png",
 ]
 
 function countMondaysBetween(begins: Date, ends: Date) {
@@ -77,9 +78,6 @@ export default function QuienesSomosPage() {
       <div className="my-6">
         <PhotoGallery images={galleryImages} alt="Hormigas Rebeldes" />
       </div>
-      <a href="/como-ayudar" className="inline-block bg-green-700 text-white px-6 py-2 my-5 rounded shadow hover:bg-green-800 transition">
-        Quiero colaborar
-      </a>
       <br/>
       <h2 className="text-2xl font-semibold mb-4">Datos fácticos</h2>
       <div className="flex flex-col md:flex-row gap-6 justify-center mb-8">
@@ -107,7 +105,7 @@ export default function QuienesSomosPage() {
       <h2 className="text-2xl font-semibold mb-4 my-5">Chambareros</h2>
       <p className="text-gray-700">
         Trabajar es necesario para inclusión social, y por eso nos esforzamos en ayudar a quienes lo necesitan a conseguirlo.
-        Los chambaereos son las personas a las cuales les hemos podidos encontrar un trabajo. Esto es de lo más díficil pues se requiere construir un vector vinculante lleno de confianza, algo que escapa a nuestro accionar individual y requiere de la colaboración de toda la comunidad.
+        Los chambareros son las personas a las cuales les hemos podidos encontrar un trabajo. Esto es de lo más díficil pues se requiere construir un vector vinculante lleno de confianza, algo que escapa a nuestro accionar individual y requiere de la colaboración de toda la comunidad.
       </p>
     </div>
   );
